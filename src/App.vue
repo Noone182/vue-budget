@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <total-balance :total="totalBalance" />
+    <Form />
+    <total-balance :total="totalBalance"/>
     <budget-list :list="list"
                  @deleteItem="onDeleteItem"/>
   </div>
@@ -9,12 +10,14 @@
 <script>
 import BudgetList from "@/components/BudgetList";
 import TotalBalance from "@/components/TotalBalance";
+import Form from "@/components/Form";
 
 export default {
   name: 'App',
   components: {
     BudgetList,
-    TotalBalance
+    TotalBalance,
+    Form
   },
   data() {
     return {
@@ -38,7 +41,7 @@ export default {
   computed: {
     totalBalance() {
       return Object.values(this.list).reduce(
-            (acc, item) => acc + item.value, 0)
+          (acc, item) => acc + item.value, 0)
     }
   },
   methods: {

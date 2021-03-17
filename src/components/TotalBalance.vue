@@ -15,11 +15,11 @@ export default {
 </script>
 
 <style scoped>
-  .total-value{
-    font-size: 26px;
-    text-transform: uppercase;
-    padding: 20px;
-  }
+.total-value {
+  font-size: 26px;
+  text-transform: uppercase;
+  padding: 20px;
+}
 
 
 </style>
