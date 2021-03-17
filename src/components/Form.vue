@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$refs.addItemForm.validate(() => {
+      this.$refs.addItemForm.validate(valid => {
         if (valid) {
           this.$emit('submitForm', { ...this.formData }
           );

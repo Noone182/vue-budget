@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Form @submitForm="onFormSubmit" />
+    <Form @submitForm="onFormSubmit"/>
     <total-balance :total="totalBalance"/>
     <budget-list :list="list"
                  @deleteItem="onDeleteItem"/>
@@ -41,7 +41,10 @@ export default {
   computed: {
     totalBalance() {
       return Object.values(this.list).reduce(
-          (acc, item) => acc + item.value, 0)
+          (acc, item) => {
+            if (item.type === 'OUTCOME') item.value = -Math.abs(item.value);
+            return acc + item.value;
+          }, 0)
     }
   },
   methods: {
