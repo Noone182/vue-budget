@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Form />
+    <Form @submitForm="onFormSubmit" />
     <total-balance :total="totalBalance"/>
     <budget-list :list="list"
                  @deleteItem="onDeleteItem"/>
@@ -47,6 +47,14 @@ export default {
   methods: {
     onDeleteItem(id) {
       this.$delete(this.list, id);
+    },
+    onFormSubmit(data) {
+      const newObj = {
+        ...data,
+        id: String(Math.random())
+      };
+
+      this.$set(this.list, newObj.id, newObj);
     }
   }
 }
